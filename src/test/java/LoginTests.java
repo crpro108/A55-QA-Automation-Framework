@@ -13,7 +13,7 @@ public class LoginTests extends BaseTest {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
         // version error fix
-        System.setProperty("webdriver.chrome.driver", "chromedriver-mac-arm64/chromedriver");
+        //System.setProperty("webdriver.chrome.driver", "chromedriver-mac-arm64/chromedriver");
         //declaration
         WebDriver driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
