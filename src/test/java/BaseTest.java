@@ -10,14 +10,15 @@ import java.time.Duration;
 
 public class BaseTest {
     public WebDriver driver;
-    public String url = "https://qa.koel.app/";
+
     @BeforeSuite
     static void setupClass() {
         WebDriverManager.chromedriver().setup();
     }
 
     @BeforeMethod
-    public void launchBrowser(){
+    @Parameters("baseUrl")
+    public void launchBrowser(String baseUrl){
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
         //System.setProperty("webdriver.chrome.driver", "chromedriver-mac-arm64/chromedriver");
@@ -25,6 +26,7 @@ public class BaseTest {
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
+        driver.get(baseUrl);
     }
 
     //Helper Methods
@@ -46,9 +48,9 @@ public class BaseTest {
         emailField.sendKeys(email);
     }
 
-    public void navigateToPage() {
-        driver.get(url);
-    }
+//    public void navigateToPage() {
+//        driver.get(url);
+//    }
 
     @AfterMethod
     public void closeBrowser(){
