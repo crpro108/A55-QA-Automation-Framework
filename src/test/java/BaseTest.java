@@ -48,10 +48,6 @@ public class BaseTest {
         emailField.sendKeys(email);
     }
 
-//    public void navigateToPage() {
-//        driver.get(url);
-//    }
-
     @AfterMethod
     public void closeBrowser(){
         driver.quit();
