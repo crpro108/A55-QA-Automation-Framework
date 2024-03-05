@@ -12,28 +12,28 @@ public class homework17 extends BaseTest{
     @Test
     public void addSongToPlaylist() throws InterruptedException {
         //Login
-        navigateToPage();
+        //navigateToPage();
         String expectedSongAddedSuccessMessage = "Added 1 song into \"PlayListForDeleting1.\"";
         provideEmail("demo@class.com");
         providePassword("te$t$tudent");
         loginToKoel();
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
 
         //add song to Playlist
         searchSong("Dark");
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
         //click view all button
         clickViewAllBtn();
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
         //Select first Song
         selectFirstSongResult();
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
         //click add to button to add the song
         clikAddToBtn();
-        Thread.sleep(10000);
+        //Thread.sleep(2000);
         //choose playlist
         choosePlaylist();
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
         //Assertions
         Assert.assertEquals(getAddToPlaylistSuccessMsg(), expectedSongAddedSuccessMessage);
         //Thread.sleep(10000);
@@ -69,7 +69,7 @@ public class homework17 extends BaseTest{
         WebElement searchField = driver.findElement(By.cssSelector("div#searchForm input[type='search']"));
         searchField.sendKeys(songName);
         searchField.click();
-        Thread.sleep(2000);
+        //Thread.sleep(2000);
     }
 
 
