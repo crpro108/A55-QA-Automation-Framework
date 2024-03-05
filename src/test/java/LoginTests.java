@@ -1,6 +1,3 @@
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.Assert;
 import org.testng.annotations.Test;
 
@@ -12,7 +9,7 @@ public class LoginTests extends BaseTest {
     public void loginEmptyEmailPassword() {
         // test for forking
 //      Added ChromeOptions argument below to fix websocket error
-        navigateToPage();
+        //navigateToPage();
         Assert.assertEquals(driver.getCurrentUrl(), url);
         driver.quit();
     }
