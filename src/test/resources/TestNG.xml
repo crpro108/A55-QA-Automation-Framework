@@ -3,13 +3,13 @@
 
 <suite name="homework18">
     <parameter name="baseUrl" value="https://qa.koel.app/"/>
-    <test name="homework18" preserve-order="false">
+    <test name="homework19" preserve-order="false">
         <classes>
 <!--            <class name="LoginTests"/>-->
             <class name="BaseTest"/>
-            <class name="homework18">
+            <class name="HomeWork19">
                 <methods>
-                    <include name="playSong"/>
+                    <include name="deletePlayList"/>
                 </methods>
             </class>
 
