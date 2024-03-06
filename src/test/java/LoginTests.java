@@ -10,7 +10,7 @@ public class LoginTests extends BaseTest {
     public String url = "https://qa.koel.app/";
     @Test
     public void loginEmptyEmailPassword() {
-        navigateToPage();
+        //navigateToPage();
         Assert.assertEquals(driver.getCurrentUrl(), url);
         driver.quit();
     }
