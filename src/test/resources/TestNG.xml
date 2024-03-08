@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="homework18">
+<suite name="homework20">
     <parameter name="baseUrl" value="https://qa.koel.app/"/>
     <test name="homework20" preserve-order="false">
         <classes>
-<!--            <class name="LoginTests"/>-->
             <class name="BaseTest"/>
             <class name="HomeWork20">
                 <methods>
