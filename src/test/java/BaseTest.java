@@ -21,6 +21,7 @@ public class BaseTest {
     public void launchBrowser(String baseUrl){
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
+        // version fix
         //System.setProperty("webdriver.chrome.driver", "chromedriver-mac-arm64/chromedriver");
 
         driver = new ChromeDriver(options);
