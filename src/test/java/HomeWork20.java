@@ -17,8 +17,8 @@ public class HomeWork20 extends BaseTest{
     public void deletePlayList() throws InterruptedException {
         String expectedPlayListMsg = "Deleted playlist \"Test1.\"";
 
-        provideEmail("demo@class.com");
-        providePassword("te$t$tudent");
+        provideEmail("charita.ramnathsing@testpro.io");
+        providePassword("108KvbVhb2024");
         loginToKoel();
         selectPlayList();
         clickDeletePlayList();
@@ -31,7 +31,7 @@ public class HomeWork20 extends BaseTest{
 
     public String getAlertMsg() {
 
-        Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(2));
+        Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(10));
         WebElement notification = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("button.ok")));
         return notification.getText();
     }
