@@ -18,14 +18,14 @@ import static org.openqa.selenium.By.cssSelector;
 
 public class HomeWork21 extends BaseTest{
     @Test
-    public void renamePlaylist() throws InterruptedException {
-        String expectedPlayListMsg = "Updated playlist \"Test1.\"";
+    public void renamePlaylist() {
+        String expectedPlayListMsg = "Updated playlist \"Test2.\"";
         provideEmail("charita.ramnathsing@testpro.io");
         providePassword("108KvbVhb2024");
         loginToKoel();
 
         selectPlayList();
-        Thread.sleep(2000);
+
         Assert.assertEquals(getUpdatedPlaylistMsg(), expectedPlayListMsg);
 
     }
@@ -43,7 +43,7 @@ public class HomeWork21 extends BaseTest{
         action.doubleClick(selectPlayListElement).perform();
         action.doubleClick(selectPlayListElement).perform();
 
-        action.sendKeys("Test1").perform();
+        action.sendKeys("Test2").perform();
         action.sendKeys(Keys.ENTER).perform();
 
     }
