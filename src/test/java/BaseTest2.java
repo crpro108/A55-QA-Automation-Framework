@@ -30,26 +30,6 @@ public class BaseTest2 {
         driver.get(baseUrl);
     }
 
-    //Helper Methods
-//    public void loginToKoel() {
-//        WebElement loginBtn =  driver.findElement(By.cssSelector("button[type='submit']"));
-//        loginBtn.click();
-//        //Thread.sleep(5000);
-//    }
-//
-//    public void providePassword(String password) {
-//        WebElement passwordField = driver.findElement(By.cssSelector("input[type='password']"));
-//        passwordField.clear();
-//        passwordField.sendKeys(password);
-//    }
-//
-//    public void provideEmail(String email) {
-//        WebElement emailField = driver.findElement(By.cssSelector("input[type='email']"));
-//        emailField.clear();
-//        emailField.sendKeys(email);
-//    }
-
-
     @AfterMethod
     public void closeBrowser(){
         driver.quit();
