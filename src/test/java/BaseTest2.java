@@ -22,7 +22,7 @@ public class BaseTest2 {
         ChromeOptions options = new ChromeOptions();
         options.addArguments("--remote-allow-origins=*");
         // version fix
-        System.setProperty("webdriver.chrome.driver", "chromedriver-mac-arm64/chromedriver");
+        //System.setProperty("webdriver.chrome.driver", "chromedriver-mac-arm64/chromedriver");
 
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
