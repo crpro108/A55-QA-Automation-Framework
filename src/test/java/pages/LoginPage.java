@@ -9,11 +9,11 @@ public class LoginPage extends BasePage{
         super(givenDriver);
     }
     @FindBy(css = "[type='email']")
-    WebElement emailField;
+    private WebElement emailField;
     @FindBy(css = "[type='password']")
-    WebElement passwordField;
+    private WebElement passwordField;
     @FindBy(css = "[type='submit']")
-    WebElement submitBtn;
+    private WebElement submitBtn;
 
     public void provideEmail(String email){
         emailField.sendKeys(email);

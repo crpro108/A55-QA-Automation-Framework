@@ -19,8 +19,5 @@ public class BasePage {
         action = new Actions(driver);
         PageFactory.initElements(driver, this);
     }
-//    public WebElement findElement(By locator){
-//        return  wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
-//    }
 
 }
