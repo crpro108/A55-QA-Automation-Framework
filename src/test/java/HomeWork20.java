@@ -1,22 +1,39 @@
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.By;
+import java.time.Duration;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.By;
+import org.openqa.selenium.support.ui.Wait;
+import org.openqa.selenium.support.ui.FluentWait;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
 import org.testng.Assert;
 import org.testng.annotations.Test;
-
-public class HomeWork19 extends BaseTest{
+public class HomeWork20 extends BaseTest{
     @Test
-    public void deletePlayList() throws InterruptedException {
-        String expectedPlayListMsg = "Deleted playlist \"PlayListForDeleting1.\"";
+    public void deletePlayList() {
+        String expectedPlayListMsg = "Deleted playlist \"Test1.\"";
 
-        provideEmail("demo@class.com");
-        providePassword("te$t$tudent");
+        provideEmail("charita.ramnathsing@testpro.io");
+        providePassword("108KvbVhb2024");
         loginToKoel();
         selectPlayList();
         clickDeletePlayList();
-        Thread.sleep(2000);
+
+        System.out.println(getAlertMsg());
         submitAlertToDeletePlaylist();
-        // Asserts
+
         Assert.assertEquals(getDeletedPlaylistMsg(), expectedPlayListMsg);
+    }
+
+    public String getAlertMsg() {
+
+        Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement notification = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("button.ok")));
+        return notification.getText();
     }
 
     public void submitAlertToDeletePlaylist() {
@@ -39,6 +56,6 @@ public class HomeWork19 extends BaseTest{
         WebElement playlistMsg = driver.findElement(By.cssSelector("div.success.show"));
         return playlistMsg.getText();
     }
-    
+
 
 }
