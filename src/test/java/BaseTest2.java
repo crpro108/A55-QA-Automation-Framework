@@ -23,32 +23,12 @@ public class BaseTest2 {
         options.addArguments("--remote-allow-origins=*");
         // version fix
         //System.setProperty("webdriver.chrome.driver", "chromedriver-mac-arm64/chromedriver");
-
+        // open and maximize app
         driver = new ChromeDriver(options);
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
         driver.manage().window().maximize();
         driver.get(baseUrl);
     }
-
-    //Helper Methods
-//    public void loginToKoel() {
-//        WebElement loginBtn =  driver.findElement(By.cssSelector("button[type='submit']"));
-//        loginBtn.click();
-//        //Thread.sleep(5000);
-//    }
-//
-//    public void providePassword(String password) {
-//        WebElement passwordField = driver.findElement(By.cssSelector("input[type='password']"));
-//        passwordField.clear();
-//        passwordField.sendKeys(password);
-//    }
-//
-//    public void provideEmail(String email) {
-//        WebElement emailField = driver.findElement(By.cssSelector("input[type='email']"));
-//        emailField.clear();
-//        emailField.sendKeys(email);
-//    }
-
 
     @AfterMethod
     public void closeBrowser(){
