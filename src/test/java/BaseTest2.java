@@ -52,7 +52,7 @@ public class BaseTest2 {
             default:
                 ChromeOptions chromeOptions = new ChromeOptions();
                 chromeOptions.addArguments("--remote-allow-origins=*");
-                System.setProperty("webdriver.chrome.driver", "chromedriver-mac-arm64/chromedriver");
+                //System.setProperty("webdriver.chrome.driver", "chromedriver-mac-arm64/chromedriver");
                 System.out.println("chrome");
                 return driver = new ChromeDriver(chromeOptions);
         }
