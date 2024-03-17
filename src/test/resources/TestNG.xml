@@ -1,17 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="homework23">
+<suite name="TestNG">
     <parameter name="baseUrl" value="https://qa.koel.app/"/>
-    <test name="homework23" preserve-order="false">
+    <test name="A55-L24 Selenium Grid" preserve-order="false">
         <classes>
-            <class name="BaseTest2"/>
-            <class name="HomeWork23">
-                <methods>
-                    <include name="renamePlaylist"/>
-                </methods>
+            <class name="HomeWork24">
+                <methods><include name="launchGrid"/></methods>
             </class>
-
         </classes>
     </test>
 </suite>
