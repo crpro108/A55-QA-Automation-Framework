@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd" >
 
-<suite name="TestNG">
+<suite name="TestNG" parallel="methods" thread-count="2">
     <parameter name="baseUrl" value="https://qa.koel.app/"/>
     <test name="A55-L24 Selenium Grid" preserve-order="false">
         <classes>
-            <class name="HomeWork24">
-                <methods><include name="launchGrid"/></methods>
+            <class name="HomeWork25">
+                <methods><include name="launchParallel"/></methods>
             </class>
         </classes>
     </test>

@@ -13,25 +13,43 @@ import org.testng.annotations.*;
 
 import java.net.MalformedURLException;
 import java.net.URI;
+import java.net.URL;
 import java.time.Duration;
 
 public class BaseTest2 {
-    public WebDriver driver;
+    private static final ThreadLocal<WebDriver> THREAD_LOCAL = new ThreadLocal<>();
 
-    @BeforeSuite
-    static void setupClass() {
-        WebDriverManager.chromedriver().setup();
-        WebDriverManager.safaridriver().setup();
+    public static WebDriver getThreadLocal() {
+        return THREAD_LOCAL.get();
     }
+
     @BeforeMethod
     @Parameters("baseUrl")
-    public void setUpBrowser(String baseUrl) throws MalformedURLException {
-        driver = pickBrowser(System.getProperty("browser"));
-        System.out.println("browser");
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
-        driver.manage().window().maximize();
-        driver.get(baseUrl);
+    public void setUpBrowser(@Optional String baseURL) throws MalformedURLException {
+        THREAD_LOCAL.set(pickBrowser(System.getProperty("browser")));
+        THREAD_LOCAL.get().manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
+        THREAD_LOCAL.get().manage().window().maximize();
+        THREAD_LOCAL.get().manage().deleteAllCookies();
+        getThreadLocal().get(baseURL);
+        System.out.println(
+                "Browser setup by Thread " + Thread.currentThread().getId() + " and Driver reference is : " + getThreadLocal());
+
     }
+    public WebDriver lambdaTest() throws MalformedURLException {
+        String username = "";
+        String authkey = "";
+        String hub = "@hub.lambdatest.com/wd/hub";
+        DesiredCapabilities caps = new DesiredCapabilities();
+        caps.setCapability("platform", "Windows 10");
+        caps.setCapability("browserName", "Chrome");
+        caps.setCapability("version", "110.0");
+        caps.setCapability("resolution", "1024x768");
+        caps.setCapability("build", "TestNG With Java");
+        caps.setCapability("name", this.getClass().getName());
+        caps.setCapability("plugin", "git-testng");
+        return new RemoteWebDriver(new URL("https://" + username + ":" + authkey + hub), caps);
+    }
+
 
     public WebDriver pickBrowser(String browser) throws MalformedURLException {
         DesiredCapabilities caps = new DesiredCapabilities();
@@ -40,26 +58,30 @@ public class BaseTest2 {
             case "safari":
                 SafariOptions safariOptions = new SafariOptions();
                 System.out.println("safari");
-                return driver = new SafariDriver(safariOptions);
+                return new SafariDriver(safariOptions);
             case "grid-safari":
                 caps.setCapability("browserName", "Safari");
                 System.out.println("grid-safari");
-                return driver = new RemoteWebDriver(URI.create(gridURL).toURL(), caps);
+                return new RemoteWebDriver(URI.create(gridURL).toURL(), caps);
             case "grid-chrome":
                 caps.setCapability("browserName", "chrome");
                 System.out.println("grid-chrome");
-                return driver = new RemoteWebDriver(URI.create(gridURL).toURL(), caps);
+                return new RemoteWebDriver(URI.create(gridURL).toURL(), caps);
+            case "cloud":
+                return lambdaTest();
             default:
-                ChromeOptions chromeOptions = new ChromeOptions();
-                chromeOptions.addArguments("--remote-allow-origins=*");
-                //System.setProperty("webdriver.chrome.driver", "chromedriver-mac-arm64/chromedriver");
-                System.out.println("chrome");
-                return driver = new ChromeDriver(chromeOptions);
+                WebDriverManager.chromedriver().setup();
+                ChromeOptions optionsChrome = new ChromeOptions();
+                optionsChrome.addArguments("--remote-allow-origins=*");
+                optionsChrome.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
+                System.setProperty("webdriver.chrome.driver", "chromedriver-mac-arm64/chromedriver");
+                return new ChromeDriver(optionsChrome);
         }
     }
     @AfterMethod
-        public void closeBrowser(){
-        driver.quit();
+    public void tearDown() {
+        THREAD_LOCAL.get().close();
+        THREAD_LOCAL.remove();
     }
 
 }
