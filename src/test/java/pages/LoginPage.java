@@ -24,7 +24,7 @@ public class LoginPage extends BasePage{
     public void clickSubmit(){
         submitBtn.click();
     }
-    public void loginMainPage(){
+    public void loginMainPage() {
         provideEmail("charita.ramnathsing@testpro.io");
         providePassword("108KvbVhb2024");
         clickSubmit();
