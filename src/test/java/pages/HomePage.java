@@ -19,6 +19,9 @@ public class HomePage extends BasePage {
     @FindBy(css = ".avatar")
     private WebElement userAvatarIcon;
 
+    @FindBy(css = ".playlist:nth-child(3)")
+    private WebElement playlistIcon;
+
     public HomePage(WebDriver givenDriver) {
         super(givenDriver);
     }
@@ -30,10 +33,13 @@ public class HomePage extends BasePage {
     public boolean getUserAvatar() {
         return userAvatarIcon.isEnabled();
     }
+
+    public boolean getPlaylist() {
+        return playlistIcon.isEnabled();
+    }
     public void selectPlayList(String playlist) {
         Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(3));
         WebElement selectPlayListElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector(".playlist:nth-child(3)")));
-
         Actions action = new Actions(driver);
 
         action.

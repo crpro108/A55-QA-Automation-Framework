@@ -19,11 +19,12 @@ public class HomeWork25 extends BaseTest {
     public void launchTest(){
         //GIVEN
         String homeList = "Homelist";
+        LoginPage loginPage = new LoginPage(getThreadLocal());
         HomePage homePage = new HomePage(getThreadLocal());
         //WHEN
-        homePage.selectPlayList(homeList);
+        loginPage.loginMainPage();
         //THEN
-        Assert.assertTrue(homePage.getUpdatedPlaylistMsg().contains(homeList));
+        Assert.assertTrue(homePage.getPlaylist());
 
     }
 

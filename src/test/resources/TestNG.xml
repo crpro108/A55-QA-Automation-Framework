@@ -8,7 +8,6 @@
             <class name="HomeWork25">
                 <methods><include name="launchParallel"/></methods>
                 <methods><include name="launchTest"/></methods>
-
             </class>
         </classes>
     </test>

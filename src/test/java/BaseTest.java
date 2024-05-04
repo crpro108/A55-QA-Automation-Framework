@@ -2,14 +2,16 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
-
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.firefox.FirefoxOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.openqa.selenium.safari.SafariDriver;
 import org.openqa.selenium.safari.SafariOptions;
-import org.testng.annotations.*;
+import org.testng.annotations.AfterMethod;
+import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.Optional;
+import org.testng.annotations.Parameters;
 
 import java.net.MalformedURLException;
 import java.net.URI;
@@ -81,7 +83,7 @@ public class BaseTest {
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions optionsChrome = new ChromeOptions();
                 optionsChrome.addArguments("--remote-allow-origins=*");
-                optionsChrome.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
+                //optionsChrome.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
                 System.setProperty("webdriver.chrome.driver", "chromedriver-mac-arm64/chromedriver");
                 return new ChromeDriver(optionsChrome);
         }
