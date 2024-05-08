@@ -83,14 +83,14 @@ public class BaseTest {
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions optionsChrome = new ChromeOptions();
                 optionsChrome.addArguments("--remote-allow-origins=*");
-                System.setProperty("webdriver.chrome.driver", "chromedriver-mac-arm64/chromedriver");
+                //System.setProperty("webdriver.chrome.driver", "chromedriver-mac-arm64/chromedriver");
                 return new ChromeDriver(optionsChrome);
             default:
                 WebDriverManager.chromedriver().setup();
                 ChromeOptions defOptionsChrome = new ChromeOptions();
                 defOptionsChrome.addArguments("--remote-allow-origins=*");
                 //optionsChrome.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
-                System.setProperty("webdriver.chrome.driver", "chromedriver-mac-arm64/chromedriver");
+                //System.setProperty("webdriver.chrome.driver", "chromedriver-mac-arm64/chromedriver");
                 return new ChromeDriver(defOptionsChrome);
         }
     }
