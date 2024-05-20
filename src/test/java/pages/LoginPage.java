@@ -29,4 +29,15 @@ public class LoginPage extends BasePage{
         providePassword("108KvbVhb2024");
         clickSubmit();
     }
+    public void loginIncorrectPassword() {
+        provideEmail("charita.ramnathsing@testpro.io");
+        providePassword("109KvbVhb2024");
+        clickSubmit();
+    }
+
+    public void loginIncorrectEmailAndPassword() {
+        provideEmail("test@testpro.io");
+        providePassword("109KvbVhb2024");
+        clickSubmit();
+    }
 }

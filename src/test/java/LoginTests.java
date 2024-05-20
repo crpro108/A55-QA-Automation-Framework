@@ -1,5 +1,4 @@
 import org.testng.Assert;
-import org.testng.annotations.Test;
 import pages.HomePage;
 import pages.LoginPage;
 
@@ -10,8 +9,9 @@ public class LoginTests extends BaseTest {
         LoginPage loginPage = new LoginPage(getThreadLocal());
         HomePage homePage = new HomePage(getThreadLocal());
 
+        loginPage.loginIncorrectPassword();
+        loginPage.loginIncorrectEmailAndPassword();
         loginPage.loginMainPage();
-
         Assert.assertTrue(homePage.getUserAvatar());
     }
 }
