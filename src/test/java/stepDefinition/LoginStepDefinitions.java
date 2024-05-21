@@ -16,6 +16,7 @@ import org.testng.Assert;
 
 import java.time.Duration;
 
+// definitions for Cucumber
 public class LoginStepDefinitions {
     WebDriver driver;
     WebDriverWait wait;

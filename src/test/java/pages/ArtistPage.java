@@ -22,15 +22,6 @@ public class ArtistPage extends BasePage{
         artistNavBar.click();
     }
     public boolean checkArtist(){
-//        Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(3));
-//        WebElement selectArtistElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath("//h1[normalize-space(text())='Artists']")));
-//        Actions action = new Actions(driver);
-//        action.sendKeys(selectArtistElement).sendKeys(Keys.ENTER).perform();
             return artistHeader.isEnabled();
     }
-    public void clickArtistHeader(){
-        clickArtistNavBar();
-    }
-
-
 }

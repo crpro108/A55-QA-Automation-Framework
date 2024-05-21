@@ -40,6 +40,7 @@ public class BaseTest {
                 "Browser setup by Thread " + Thread.currentThread().getId() + " and Driver reference is : " + getThreadLocal());
 
     }
+
     public WebDriver lambdaTest() throws MalformedURLException {
         String username = "";
         String authkey = "";
@@ -90,7 +91,7 @@ public class BaseTest {
                 ChromeOptions defOptionsChrome = new ChromeOptions();
                 defOptionsChrome.addArguments("--remote-allow-origins=*");
                 //optionsChrome.setExperimentalOption("excludeSwitches", new String[]{"enable-automation"});
-                System.setProperty("webdriver.chrome.driver", "chromedriver-mac-arm64/chromedriver");
+                //System.setProperty("webdriver.chrome.driver", "chromedriver-mac-arm64/chromedriver");
                 return new ChromeDriver(defOptionsChrome);
         }
     }
