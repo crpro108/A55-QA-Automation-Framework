@@ -7,11 +7,11 @@
         <classes>
             <class name="BaseTest"/>
             <class name="LoginTests"/>
-<!--            <class name="ArtistTest">-->
-<!--                    <methods>-->
-<!--                        <include name="checkForArtistPage"/>-->
-<!--                    </methods>-->
-<!--            </class>-->
+            <class name="ArtistTest">
+                    <methods>
+                        <include name="checkForArtistPage"/>
+                    </methods>
+            </class>
         </classes>
     </test>
 </suite>
