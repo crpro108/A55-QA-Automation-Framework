@@ -3,14 +3,11 @@
 
 <suite name="TestNG" parallel="methods">
     <parameter name="baseUrl" value="https://qa.koel.app/"/>
-    <test name="A55-L26 CI/CD" preserve-order="false">
+<!--    <test name="A55-L26 CI/CD" preserve-order="false">-->
+    <test name="Sprint10">
         <classes>
-<!--            <class name="HomeWork25">-->
-<!--                <methods><include name="launchParallel"/></methods>-->
-<!--                <methods><include name="launchTest"/></methods>-->
-            <class name="LoginTests">
-                <methods><include name="loginSucceedTest"/></methods>
-
+            <class name="QueueTest">
+                <methods><include name="allSongsQueueTest"/></methods>
             </class>
         </classes>
     </test>
