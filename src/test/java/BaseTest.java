@@ -35,7 +35,7 @@ public class BaseTest {
         THREAD_LOCAL.get().manage().deleteAllCookies();
         getThreadLocal().get(baseURL);
         System.out.println(
-                "Browser setup by Thread " + Thread.currentThread().getId() + " and Driver reference is : " + getThreadLocal());
+                "CR_Browser setup by Thread " + Thread.currentThread().getId() + " and Driver reference is : " + getThreadLocal());
 
     }
 

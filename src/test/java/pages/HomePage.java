@@ -59,9 +59,6 @@ public class HomePage extends BasePage {
     public void selectQueue() {
         Wait<WebDriver> wait = new WebDriverWait(driver, Duration.ofSeconds(3));
         WebElement selectQueueElement = wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a.queue")));
-        Actions action = new Actions(driver);
-
-        action.sendKeys(selectQueueElement, Keys.ENTER).perform();
-
+        selectQueueElement.click();
     }
 }

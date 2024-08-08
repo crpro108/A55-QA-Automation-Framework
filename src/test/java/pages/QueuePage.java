@@ -15,7 +15,7 @@ public class QueuePage extends BasePage {
     }
 
     @FindBy(xpath = "//*[text()='shuffling all songs']")
-    private WebElement queueShuffleAllSongs;
+    public WebElement queueShuffleAllSongs;
 
     @FindBy(xpath = "//*[text()='No songs queued.']")
     private WebElement noSongsQueued;
@@ -51,6 +51,7 @@ public class QueuePage extends BasePage {
     private WebElement clearQueueBtn;
 
     public void clickShuffleAllSongs() {
+
         queueShuffleAllSongs.click();
     }
 
